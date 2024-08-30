@@ -165,7 +165,7 @@
 }
 
 .team-card__content {
-  box-shadow: 6px 6px 30px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 6px 6px 30px 0px rgba(243, 216, 216, 0.6);
 }
 
 .testimonials-two {
@@ -218,3 +218,12 @@
   background-color: var(--drivschol-black3);
 }
 /*# sourceMappingURL=drivschol-dark.css.map */
+
+input, textarea {
+   background-color: white!important; border:black;
+   border: solid 1px black;
+}
+
+.contact-one__form__control{
+     border: solid 1px black;
+}
