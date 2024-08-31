@@ -4760,7 +4760,7 @@ a:visited {
     display: none;
   }
 }
-.main-header__right .item-shape {
+.main-header__right .item-shape d-none {
   position: absolute;
   height: 109.11px;
   left: -40%;
@@ -4769,7 +4769,7 @@ a:visited {
   top: 0;
 }
 @media screen and (max-width: 768px) {
-  .main-header__right .item-shape {
+  .main-header__right .item-shape d-none {
     display: none;
   }
 }
