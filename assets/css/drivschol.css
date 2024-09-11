@@ -8161,11 +8161,11 @@ input, textarea {
 /*--------------------------------------------------------------
 # CTA
 --------------------------------------------------------------*/
-.cta-one {
+.cta-one d-none {
   position: relative;
   background-color:  #fff;
 }
-.cta-one__wrapper {
+.cta-one d-none__wrapper {
   position: relative;
   overflow: hidden;
   padding: 40px 80px;
@@ -8176,16 +8176,16 @@ input, textarea {
   z-index: 1;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px) {
-  .cta-one__wrapper {
+  .cta-one d-none__wrapper {
     padding: 40px;
   }
 }
 @media (max-width: 575px) {
-  .cta-one__wrapper {
+  .cta-one d-none__wrapper {
     padding: 30px 20px;
   }
 }
-.cta-one__wrapper::before {
+.cta-one d-none__wrapper::before {
   position: absolute;
   top: 0%;
   left: 0;
@@ -8197,12 +8197,12 @@ input, textarea {
   clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
 }
 @media only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
-  .cta-one__wrapper::before {
+  .cta-one d-none__wrapper::before {
     width: 100%;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 }
-.cta-one__wrapper::after {
+.cta-one d-none__wrapper::after {
   position: absolute;
   top: 0%;
   right: 0;
@@ -8214,11 +8214,11 @@ input, textarea {
   clip-path: polygon(35% 0, 100% 0, 100% 100%, 0% 100%);
 }
 @media only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
-  .cta-one__wrapper::after {
+  .cta-one d-none__wrapper::after {
     display: none;
   }
 }
-.cta-one__element {
+.cta-one d-none__element {
   position: absolute;
   top: 0;
   left: 0;
@@ -8226,7 +8226,7 @@ input, textarea {
   height: 100%;
   z-index: -1;
 }
-.cta-one__title {
+.cta-one d-none__title {
   color:  #fff;
   font-size: 40px;
   font-style: normal;
@@ -8237,26 +8237,26 @@ input, textarea {
   margin-bottom: 30px;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
-  .cta-one__title {
+  .cta-one d-none__title {
     font-size: 30px;
   }
 }
-.cta-one .drivschol-btn {
+.cta-one d-none .drivschol-btn {
   padding: 17px 45px;
 }
-.cta-one__thumb__one {
+.cta-one d-none__thumb__one {
   max-width: 100%;
 }
-.cta-one__thumb__one__thumb {
+.cta-one d-none__thumb__one__thumb {
   max-width: 435px;
   height: auto !important;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
-  .cta-one__thumb__one__thumb {
+  .cta-one d-none__thumb__one__thumb {
     margin-top: 30px;
   }
 }
-.cta-one__thumb__one__thumb img {
+.cta-one d-none__thumb__one__thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -13216,6 +13216,7 @@ input, textarea {
   bottom: 0;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 .page-header__bg::before {
   content: "";
@@ -13784,7 +13785,7 @@ input, textarea {
 .main-slider-one__title__anim {
   position: relative;
   display: inline-block;
-  overflow: hidden;
+  /* overflow: hidden; */
   margin-bottom: -20px;
   line-height: 1.2;
 }
@@ -16374,3 +16375,106 @@ body.boxed-wrapper .contact-two__left__shape {
   background: var(--drivschol-primary, #EC2526);
 }
 /*# sourceMappingURL=drivschol.css.map */
+
+.main-slider-one__item{
+  height: 70vh!important;
+   /* background-color: pink; */
+   color: #fff!important;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   animation-name: slideHome;
+   animation-duration: 15000.25ms;
+   animation-fill-mode: both;
+   animation-iteration-count: infinite;
+   animation-timing-function: step-end;
+   &:hover{
+    animation-play-state: paused;
+  }
+}
+
+@keyframes slideHome {
+  
+  0%{
+   background-image: url(./../doc/img/slide-1.jpg);
+  }
+
+  30%{
+   background-image: url(./../doc/img/slide-2.jpg);
+   }
+
+   50%{
+   background-image: url(./../doc/img/slide/team.jpg);
+   }
+
+   
+  80%{
+   background-image: url(./../doc/img/escolinha/escolinhs.jpg);
+   }
+ 
+   100%{
+   background-image: url(./../doc/img/escolinha/escolinhs.jpg);
+    }
+}
+
+
+
+div #colinhas{
+  height: 70vh!important;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   animation-name: colinha;
+   animation-duration: 15000.25ms;
+   animation-timing-function: ease;
+   animation-iteration-count: infinite;
+   animation-fill-mode: forwards;
+   &:hover{
+    animation-play-state: paused;
+  }
+}
+
+@keyframes colinha {
+  
+  0%{
+   background-image: url(./../doc/img/escolinha/escolinhs.jpg);
+
+  }
+
+  30%{
+   background-image: url(./../doc/img/escolinha/slidemaim.jpg);
+
+ 
+   }
+
+   50%{
+    background-image: url(./../doc/img/escolinha/slidemaim1.jpg);
+ 
+   }
+
+   
+  80%{
+   background-image: url(./../doc/img/escolinha/slide.jpg);
+
+ 
+   }
+ 
+   100%{
+   background-image: url(./../doc/img/escolinha/slide1.jpg);
+     
+  
+    }
+}
+
+.main-footer a{  
+  color: white !important;
+}
+
+#logo-jftech{
+  background-color: white;
+  height: 60px;
+  width: auto;
+  border: solid transparent 1px;
+  border-radius: 5px;
+  /* margin-top: 3%; */
+}

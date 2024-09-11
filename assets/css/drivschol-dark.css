@@ -8,9 +8,9 @@
   --drivschol-black3: #6D7076;
 }
 
-.cta-one .drivschol-btn::before,
-.cta-one .drivschol-btn,
-.cta-one__wrapper,
+.cta-one d-none .drivschol-btn::before,
+.cta-one d-none .drivschol-btn,
+.cta-one d-none__wrapper,
 .blog-card__date,
 .why-choose-one,
 .cta-three,
@@ -26,7 +26,7 @@
 .footer-widget__info li:hover a:hover,
 .footer-widget__links li:hover a:hover,
 .main-footer__inner-social a,
-.cta-one__title,
+.cta-one d-none__title,
 .blog-card__link:hover::after,
 .blog-card__link:hover,
 .blog-card__date__year,
