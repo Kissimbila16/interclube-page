@@ -615,36 +615,48 @@ O team do Interclube
             </div>
             <!-- /.row -->
 
-            <div
-              id="Players"
-              class=" d-flex testimonials-two__carousel drivschol-owl__carousel drivschol-owl__carousel--with-shadow drivschol-owl__carousel--basic-nav owl-carousel owl-theme"
-              data-owl-options='{
-						"items": 1,
-						"margin": 0,
-						"smartSpeed": 700,
-						"loop":true,
-						"autoplay": true,
-						"nav":true,
-						"URLhashListener":true,
-						"dots":false,
-						"navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow\"></span>"],
-						"responsive": {
-							"0": {
-								"items": 1
+          <div id="Players" class="testimonials-two__carousel drivschol-owl__carousel drivschol-owl__carousel--with-shadow drivschol-owl__carousel--basic-nav owl-carousel owl-theme owl-loaded owl-drag" data-owl-options="{
+						&quot;items&quot;: 1,
+						&quot;margin&quot;: 0,
+						&quot;smartSpeed&quot;: 700,
+						&quot;loop&quot;:true,
+						&quot;autoplay&quot;: true,
+						&quot;nav&quot;:true,
+						&quot;URLhashListener&quot;:true,
+						&quot;dots&quot;:false,
+						&quot;navText&quot;: [&quot;<span class=\&quot;icon-arrow-left\&quot;></span>&quot;,&quot;<span class=\&quot;icon-arrow\&quot;></span>&quot;],
+						&quot;responsive&quot;: {
+							&quot;0&quot;: {
+								&quot;items&quot;: 1
 							},
-							"500": {
-								"items": 1
+							&quot;500&quot;: {
+								&quot;items&quot;: 1
 							}
 						}
-					}'
-            >
-            <div class="testimonials-two__carousel__item" data-hash="item1 ">
-
-
-
-            
-            </div>
-            </div>
+					}">
+            <div class="testimonials-two__carousel__item" data-hash="item2" id="card-pls">
+      
+                <div class="testimonials-two__carousel__item__image">
+                  <img src="https://api.jf-tech.org/public/player/1726941016662.jpg" id="pls-img" style="height:300px;">
+                </div>
+                <div class="testimonials-two__carousel__item__content">
+               
+                  <p class="testimonials-two__carousel__item__content__text" id="pls-desc">
+                   Sou um jogador do interClube.
+                  </p>
+                  <div class="testimonials-two__carousel__item__content__author">
+                    <span class="testimonials-two__carousel__item__content__author__name" id="pls-name">BARACK GOMES </span> <br>
+    <span id="pls-position">
+      Ponta
+    </span>
+                    <p></p>
+                  </div>
+                </div>
+                </div>
+              
+      
+         
+              </div>
             <!-- /.testimonials-two__inner__carousel -->
 
             <!-- / -->
@@ -1431,40 +1443,7 @@ O team do Interclube
      listaFrutas.innerHTML = frutasHTML;
      }
 
-    function cardPlayers(url,title,text,id,description,name,position)
-    {
-      console.log(id)
-      return (`
-                <div class="testimonials-two__carousel__item__image">
-                  <img
-                    src=${url}
-                    alt="${title}"
-                    style="height:200px;"
-                  />
-                
-                </div>
-                <div class="testimonials-two__carousel__item__content">
-               
-                  <p class="testimonials-two__carousel__item__content__text">
-                   ${description}.
-                  </p>
-                  <div
-                    class="testimonials-two__carousel__item__content__author"
-                  >
-                    <span
-                      class="testimonials-two__carousel__item__content__author__name"
-                      >${name} </span
-                    <p
-                      class="testimonials-two__carousel__item__content__author__deganation"
-                    >
-                      ${position}
-                    </p>
-                  </div>
-                </div>
-              `);
-    }
-    
-    function cardNew(url,title,text,id,description,name){
+function cardNew(url,title,text,id,description,name){
       return(`   <div class="col-md-6 col-lg-4">
               <div
                 class="service-card service-card-one wow fadeInUp animated"
@@ -1504,6 +1483,8 @@ try {
  return resp.json().then(data => {
   console.log(data)
   initPlayers(data);
+  clonarElemento(pls,22 ,data.object)
+
 return resp;
 });
 });
@@ -1512,19 +1493,38 @@ return resp;
 }
 }
 
+var pls = document.getElementById("card-pls");
+let fa =0;
+console.log(fa.length)
+
 function initPlayers(obj){
-  var pls = document.getElementById("Players");
+  
   console.log(pls)
 
         var frutas = obj.object;
-  // var listaFrutas = document.getElementById("News");
-  // var template = document.getElementById("template");
+         fa = obj.object;
+        console.log(frutas.length)
   let urlImag = 'https://api.jf-tech.org/public/';     
 
-    const frutasHTML = frutas.map(fruta => cardPlayers(urlImag+fruta.photo 
-    ,fruta.title,fruta.description,fruta.id,'Sou um jogador do interClube',fruta.player,fruta.position)).join('');
-     pls.innerHTML = frutasHTML;
-     }
+    // const frutasHTML = frutas.map(fruta => cardPlayers(urlImag+fruta.photo 
+    // ,fruta.title,fruta.description,fruta.id,'Sou um jogador do interClube',fruta.player,fruta.position)).join('');
+    console.log(fa.length)
+  }
+  
+
+
+
+    function clonarElemento(elementoOriginal, quantidade,obj) {
+    for (let i = 0; i < quantidade; i++) {
+    var clone = elementoOriginal.cloneNode(true);
+    var h4Element = clone.querySelector('#pls-img');
+    var desc = clone.querySelector('#pls-desc');
+    var position= clone.querySelector('#pls-pps');
+    var name = clone.querySelector('#pls-name');
+    h4Element.alt = `Clonado ${i + 1}`;
+    elementoOriginal.parentNode.insertBefore(clone, elementoOriginal.nextSibling);
+  }
+}
 
 
 
