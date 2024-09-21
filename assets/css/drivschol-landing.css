@@ -278,35 +278,8 @@
   color: var(--drivschol-black2, blue);
   background-color: var(--drivschol-white, #fff);
 }
-.drivschol-btn::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150%;
-  height: 150%;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  background-color: var(--drivschol-black2, blue);
-  transition: 700ms cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  z-index: -1;
-}
-.drivschol-btn::after {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150%;
-  height: 150%;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  background-color: var(--drivschol-white, #fff);
-  transition-duration: 700ms;
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  z-index: -1;
-}
+
+
 .drivschol-btn:hover {
   color: var(--drivschol-black2, blue);
 }
