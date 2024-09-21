@@ -1396,6 +1396,18 @@ O team do Interclube
     <script src="assets/js/drivschol.js"></script>
 
     <script>
+   getData('https://inter-clube-jftechj.replit.app/dashboard/news');
+
+
+
+
+
+
+
+
+
+
+
      var objectGlobal;
 
      function setValue(val){
@@ -1408,9 +1420,12 @@ O team do Interclube
      async function getData(url) {
       var data;
   try {
-    const response = await fetch(url,{ method: 'GET' }).then(resp=>{
-      return resp.PromiseResult;
-    });
+    const response = await fetch(url, { method: 'GET' }).then(resp => {
+  return resp.json().then(data => {
+    init(data);
+    return resp;
+  });
+});
     
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -1418,18 +1433,20 @@ O team do Interclube
   }
 
 
-      var frutas = ["Maçã", "Banana", "Uva", "Laranja", "kissimbila"];
+
+      function init(obj){
+        var frutas = obj.object;
+        console.log(obj.object);
+        console.log(frutas);
   var listaFrutas = document.getElementById("News");
   var template = document.getElementById("template");
-  var fruits = getData('https://inter-clube-jftechj.replit.app/dashboard/news');
-  console.log(fruits);
+       
+ 
+    const frutasHTML = frutas.map(fruta => cardNew(null,fruta.title,fruta.description,fruta.id,fruta.description,fruta.name)).join('');
+     listaFrutas.innerHTML = frutasHTML;
 
-  frutas.forEach(fruta => {
-    const element = template.content.cloneNode(true).querySelector('div');
-    element.inner = cardNew(fruta,fruta,fruta,fruta,fruta,fruta);
-    console.log(element);
-    listaFrutas.appendChild(element);
-  });
+     console.log(frutasHTML);
+     }
     
 
     function cardPlayers(url,title,text,id,description,name)
