@@ -1396,37 +1396,19 @@ O team do Interclube
     <script src="assets/js/drivschol.js"></script>
 
     <script>
-   getData('https://inter-clube-jftechj.replit.app/dashboard/news');
+   getData('https://api.jf-tech.org/dashboard/news');
 
 
 
-
-
-
-
-
-
-
-
-     var objectGlobal;
-
-     function setValue(val){
-       this.objectGlobal= val;
-       console.log(val)
-      return objectGlobal;
-     }
-
-     
      async function getData(url) {
       var data;
-  try {
-    const response = await fetch(url, { method: 'GET' }).then(resp => {
-  return resp.json().then(data => {
+     try {
+      const response = await fetch(url, { method: 'GET' }).then(resp => {
+      return resp.json().then(data => {
     init(data);
     return resp;
   });
 });
-    
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -1436,16 +1418,13 @@ O team do Interclube
 
       function init(obj){
         var frutas = obj.object;
-        console.log(obj.object);
-        console.log(frutas);
   var listaFrutas = document.getElementById("News");
   var template = document.getElementById("template");
-       
- 
-    const frutasHTML = frutas.map(fruta => cardNew(null,fruta.title,fruta.description,fruta.id,fruta.description,fruta.name)).join('');
-     listaFrutas.innerHTML = frutasHTML;
+  var urlImage = 'https://api.jf-tech.org/public/noticia/';     
 
-     console.log(frutasHTML);
+    const frutasHTML = frutas.map(fruta => cardNew(urlImage+fruta.image 
+    ,fruta.title,fruta.description,fruta.id,fruta.description,fruta.name)).join('');
+     listaFrutas.innerHTML = frutasHTML;
      }
     
 
@@ -1509,12 +1488,6 @@ O team do Interclube
               </div>
             </div>`);
     }
-
-     function teste(val){
-      return (`<li class="text-danger fw-bolder ">${val}</li>`);
-     }
-
-
 
     </script>
 
