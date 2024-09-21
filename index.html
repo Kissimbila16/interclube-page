@@ -617,7 +617,7 @@ O team do Interclube
 
             <div
               id="Players"
-              class="testimonials-two__carousel drivschol-owl__carousel drivschol-owl__carousel--with-shadow drivschol-owl__carousel--basic-nav owl-carousel owl-theme"
+              class=" d-flex testimonials-two__carousel drivschol-owl__carousel drivschol-owl__carousel--with-shadow drivschol-owl__carousel--basic-nav owl-carousel owl-theme"
               data-owl-options='{
 						"items": 1,
 						"margin": 0,
@@ -638,7 +638,12 @@ O team do Interclube
 						}
 					}'
             >
+            <div class="testimonials-two__carousel__item" data-hash="item1 ">
+
+
+
             
+            </div>
             </div>
             <!-- /.testimonials-two__inner__carousel -->
 
@@ -1396,16 +1401,18 @@ O team do Interclube
     <script src="assets/js/drivschol.js"></script>
 
     <script>
-   getData('https://api.jf-tech.org/dashboard/news');
+   var urlImage = 'https://api.jf-tech.org/public/noticia/';     
 
-
+   getData('https://api.jf-tech.org/dashboard/news/?page=1&perPage=6');
+   getDataPlayers('https://api.jf-tech.org/dashboard/players');
+   
 
      async function getData(url) {
       var data;
      try {
       const response = await fetch(url, { method: 'GET' }).then(resp => {
       return resp.json().then(data => {
-    init(data);
+    init(data.object);
     return resp;
   });
 });
@@ -1414,27 +1421,25 @@ O team do Interclube
     }
   }
 
-
-
       function init(obj){
-        var frutas = obj.object;
+        var frutas = obj.data;
   var listaFrutas = document.getElementById("News");
   var template = document.getElementById("template");
-  var urlImage = 'https://api.jf-tech.org/public/noticia/';     
 
     const frutasHTML = frutas.map(fruta => cardNew(urlImage+fruta.image 
     ,fruta.title,fruta.description,fruta.id,fruta.description,fruta.name)).join('');
      listaFrutas.innerHTML = frutasHTML;
      }
-    
 
-    function cardPlayers(url,title,text,id,description,name)
+    function cardPlayers(url,title,text,id,description,name,position)
     {
-      return (` <div class="testimonials-two__carousel__item" data-hash="item${id}">
+      console.log(id)
+      return (`
                 <div class="testimonials-two__carousel__item__image">
                   <img
                     src=${url}
                     alt="${title}"
+                    style="height:200px;"
                   />
                 
                 </div>
@@ -1456,7 +1461,7 @@ O team do Interclube
                     </p>
                   </div>
                 </div>
-              </div>`);
+              `);
     }
     
     function cardNew(url,title,text,id,description,name){
@@ -1488,6 +1493,51 @@ O team do Interclube
               </div>
             </div>`);
     }
+
+
+
+
+async function getDataPlayers(url) {
+ var data;
+try {
+ const response = await fetch(url, { method: 'GET' }).then(resp => {
+ return resp.json().then(data => {
+  console.log(data)
+  initPlayers(data);
+return resp;
+});
+});
+} catch (error) {
+ console.error('Error fetching data:', error);
+}
+}
+
+function initPlayers(obj){
+  var pls = document.getElementById("Players");
+  console.log(pls)
+
+        var frutas = obj.object;
+  // var listaFrutas = document.getElementById("News");
+  // var template = document.getElementById("template");
+  let urlImag = 'https://api.jf-tech.org/public/';     
+
+    const frutasHTML = frutas.map(fruta => cardPlayers(urlImag+fruta.photo 
+    ,fruta.title,fruta.description,fruta.id,'Sou um jogador do interClube',fruta.player,fruta.position)).join('');
+     pls.innerHTML = frutasHTML;
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
 
