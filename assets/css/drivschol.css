@@ -3509,12 +3509,12 @@ a:visited {
     margin-left: 0;
   }
 }
-.footer-widget__grid {
+.footer-widget__grid d-none {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 10px;
 }
-.footer-widget__grid-item {
+.footer-widget__grid d-none-item {
   position: relative;
   float: left;
   background-size: cover;
@@ -3522,7 +3522,7 @@ a:visited {
   width: 100%;
   overflow: hidden;
 }
-.footer-widget__grid-item::after {
+.footer-widget__grid d-none-item::after {
   content: "";
   width: 0%;
   height: 100%;
@@ -3533,7 +3533,7 @@ a:visited {
   position: absolute;
   transition: all 500ms ease-in-out;
 }
-.footer-widget__grid-item:hover::after {
+.footer-widget__grid d-none-item:hover::after {
   width: 100%;
   left: 0;
   right: auto;
