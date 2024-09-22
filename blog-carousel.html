@@ -353,7 +353,7 @@
         <div class="container">
           <div
           id="calendary"
-            class="row w-100 blog-one__carousel drivschol-owl__carousel drivschol-owl__carousel--with-shadow drivschol-owl__carousel--basic-nav owl-carousel owl-theme"
+            class="row w-100 d-flex"
             data-owl-options='{
 			"items": 1,
 			"margin": 0,
@@ -888,7 +888,7 @@
           const response = await fetch(url).then((resp) => {
             return resp.json().then((data) => {
               console.log(data);
-              //   init(data);
+                init(data);
               return resp;
             });
           });
@@ -898,7 +898,7 @@
       }
       function init(obj) {
         var frutas = obj.object;
-        var urlImage = "https://api.jf-tech.org/public/loja/";
+        var urlImage = "https://api.jf-tech.org/public/";
         const frutasHTML = frutas
           .map((fruta) =>
             cardElement(
@@ -907,31 +907,32 @@
               fruta.title,
               fruta.description,
               fruta.name,
-              fruta.preco
+              fruta.preco,
+              fruta
             )
           )
           .join("");
         pls.innerHTML = frutasHTML;
       }
-      var cardElement = (link, link2, title, description, name, subtitle) => {
-        return ` <div class="my-4 col-xl-8 col-lg-8 col-sm-8">
+      var cardElement = (link, link2, title, description, name, subtitle,fruta) => {
+        return ` <div class="my-4 col-xl-4 col-lg-4 col-sm-8">
                         <div class="blog-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms'>
-                            <div class="blog-card__image">
-                                <div class="blog-card__image-item d-flex">
-                                    <img src="${link} " alt="5 Ways That Can Develop Your Drving Skill">
-                                    <img src="${link} " alt="5 Ways That Can Develop Your Drving Skill">
+                            <div class="blog-card__image container">
+                                <div class="blog-card__image-item d-flex " style="width:100%;">
+                                    <img src="${link} " alt="5 Ways That Can Develop Your Drving Skill" style="width:50%;height:80%;margin:auto;">
+                                    <img src="${link} " alt="5 Ways That Can Develop Your Drving Skill" style="width:50%;height:80%;margin:auto;">
                                 </div>
                                 <a href="blog-details-right.html" class="blog-card__image-link"><span class="sr-only">${description} </span></a>
                                 <div class="blog-card__date">
-                                    <h2 class="blog-card__date__month">31</h2>
-                                    <span class="blog-card__date__year">${name} </span>
+                                    <h2 class="blog-card__date__month">${fruta.hora} </h2>
+                                    <span class="blog-card__date__year"> ${fruta.data_comeco} </span>
                                 </div>
                             </div><!-- /.blog-card__image -->
 
                             <div class="blog-card__content">
                               
-                                <h3 class="blog-card__title"><a href="blog-details-right.html">${description} </a></h3>
-                                <a href="blog-details-right.html" class="blog-card__link " style="background-color: blue;color:white;"> Read more</a>
+                                <h3 class="blog-card__title"><a href="blog-details-right.html">${fruta.home} vs ${fruta.visit} </a></h3>
+                                <a href="blog-details-right.html" class="blog-card__link " style="background-color: blue;color:white;"></a>
                             </div><!-- /.blog-card__content -->
                         </div><!-- /.blog-card -->
                     </div>`;
