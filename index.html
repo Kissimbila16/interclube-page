@@ -185,13 +185,13 @@
                 <li class="dropdown"><a href="#">Modalidades</a>
                                 <ul class="sub-menu">
                                  
-  <li><a href="?p=modalidade&amp;s=futebol">Futebol</a></li>
-  <li><a href="?p=modalidade&amp;s=basquetebol">Basquetebol</a></li>
-  <li><a href="?p=modalidade&amp;s=andebol">Andebol</a></li>
-  <li><a href="?p=modalidade&amp;s=judo">Judo</a></li>
-  <li><a href="?p=modalidade&amp;s=boxe">Boxe</a></li>
-  <li><a href="?p=modalidade&amp;s=atletismo">Atletismo</a></li>
-  <li><a href="?p=modalidade&amp;s=tiro">Tiro Desportivo</a></li>
+  <li><a href="desporto.html#foot">Futebol</a></li>
+  <li><a href="desporto.html#baskt">Basquetebol</a></li>
+  <li><a href="desporto.html#andebol">Andebol</a></li>
+  <li><a href="desporto.html#judo">Judo</a></li>
+  <li><a href=" desporto.html#boxe">Boxe</a></li>
+  <li><a href="desporto.html#atlatismo">Atletismo</a></li>
+  <li><a href="desporto.html#tiro">Tiro Desportivo</a></li>
    
 </ul>
                          
@@ -286,26 +286,14 @@
       <!-- /.main-header -->
       <!-- Header End-->
 
-      <section class="main-slider-one">
+      <section class="main-slider-one"  >
         <div
-          class="main-slider-one__carousel drivschol-owl__carousel owl-carousel"
-          data-owl-options='{
-			"loop": true,
-			"animateOut": "fadeOut",
-			"animateIn": "fadeInRightBig",
-			"items": 1,
-			"autoplay": true,
-			"autoplayTimeout": 7000,
-			"smartSpeed": 1000,
-			"nav": false,
-			"navText": ["<span class=\"icon-left-arrow\"></span>","<span class=\"icon-right-arrow\"></span>"],
-			"dots": true,
-			"dotsData": true,
-			"margin": 0
-			}'
-        >
+          class="main-slider-one__carousel drivschol-owl__carousel"
+ 
+      style="background-color: black!important;height:700x;">
           <div class="item" data-dot="<button>01</button>">
-            <div class="main-slider-one__item">
+            <div class="main-slider-one__item"  
+            id="bg-home">
               <div class="main-slider-one__shape-one">
                 <img
                   src="assets/images/backgrounds/slide-1-1.png"
@@ -338,21 +326,25 @@
                     /></span>
                   </h2>
                   <!-- slider-title -->
-                  <div class="main-slider-one__btn">
+                  <div class="main-slider-one__btn h-100 w-100 btn p-2 m-3  "
+                  style="background-color: blue;color: #fff;height:45px!important; width: 180px !important;border-radius: 0px;"
+                  >
                     <a
                       href="services.html"
-                      class="drivschol-btn drivschol-btn--base"
-                      ><span>Explorar</span></a
+                      ><span
+                      style="background-color: blue;color: #fff;height:35px;  width: 130px !important;"
+                      >Explorar</span></a
                     >
                   </div>
                   <!-- slider-btn -->
                 </div>
               </div>
             </div>
+    
           </div>
         </div>
-        <a href="#services" class="main-slider-one__trigger"
-          ><span class="icon-video"></span
+        <a href="#services" class="main-slider-one__trigger mt-5"
+          ><span class="icon-video" ></span
         ></a>
       </section>
       <!-- ./main-slider-one -->
@@ -968,13 +960,13 @@ O team do Interclube
                       <li><li class="dropdown"><a href="#">Modalidades</a>
                                 <ul class="sub-menu">
                                  
-  <li><a href="?p=modalidade&amp;s=futebol">Futebol</a></li>
-  <li><a href="?p=modalidade&amp;s=basquetebol">Basquetebol</a></li>
-  <li><a href="?p=modalidade&amp;s=andebol">Andebol</a></li>
-  <li><a href="?p=modalidade&amp;s=judo">Judo</a></li>
-  <li><a href="?p=modalidade&amp;s=boxe">Boxe</a></li>
-  <li><a href="?p=modalidade&amp;s=atletismo">Atletismo</a></li>
-  <li><a href="?p=modalidade&amp;s=tiro">Tiro Desportivo</a></li>
+  <li><a href="desporto.html#foot">Futebol</a></li>
+  <li><a href="desporto.html#baskt">Basquetebol</a></li>
+  <li><a href="desporto.html#andebol">Andebol</a></li>
+  <li><a href="desporto.html#judo">Judo</a></li>
+  <li><a href=" desporto.html#boxe">Boxe</a></li>
+  <li><a href="desporto.html#atlatismo">Atletismo</a></li>
+  <li><a href="desporto.html#tiro">Tiro Desportivo</a></li>
    
 </ul></li>
                       <li><a href="services-grid.html">Academia</a></li>
@@ -1198,8 +1190,7 @@ O team do Interclube
 
    getData('https://api.jf-tech.org/dashboard/news/?page=1&perPage=6');
    getDataPlayers('https://api.jf-tech.org/dashboard/players');
-var pls = document.getElementById("card-pls");
-   
+   var pls = document.getElementById("card-pls");
 
      async function getData(url) {
       var data;
@@ -1215,17 +1206,36 @@ var pls = document.getElementById("card-pls");
     }
   }
 
-      function init(obj){
+    function init(obj){
         var frutas = obj.data;
-  var listaFrutas = document.getElementById("News");
-  var template = document.getElementById("template");
+        var bg = document.getElementById("bg-home");
+        var listaFrutas = document.getElementById("News");
+
+        const images = 
+        ['https://api.jf-tech.org/public/noticia/'+frutas[0].image,
+         'https://api.jf-tech.org/public/noticia/'+frutas[1].image, 
+         'https://api.jf-tech.org/public/noticia/'+frutas[2].image,
+         'https://api.jf-tech.org/public/noticia/'+frutas[3].image,
+         'https://api.jf-tech.org/public/noticia/'+frutas[4].image
+        ]; 
+        let currentIndex = 0;
+
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % images.length;
+  bg.style.height='700px;';
+  bg.style.background = `url(${images[currentIndex]}) `;
+  bg.style.backgroundRepeat = `no-repeat `;
+  bg.style.backgroundPosition = `center`;
+  bg.style.backgroundSize = `91% 100%`;
+  
+}, 3000);
 
     const frutasHTML = frutas.map(fruta => cardNew(urlImage+fruta.image 
     ,fruta.title,fruta.description,fruta.id,fruta.description,fruta.name)).join('');
      listaFrutas.innerHTML = frutasHTML;
      }
 
-      function cardNew(url,title,text,id,description,name){
+    function cardNew(url,title,text,id,description,name){
       return(`   <div class="col-md-6 col-lg-4">
               <div
                 class="service-card service-card-one wow fadeInUp animated"
@@ -1255,7 +1265,7 @@ var pls = document.getElementById("card-pls");
             </div>`);
     }
 
-      async function clonarElemento( elementoOriginal, quantidade, obj) {
+    async function clonarElemento( elementoOriginal, quantidade) {
     for (let i = 0; i < quantidade; i++) {
     var clone = await elementoOriginal.cloneNode(true);
     var h4Element = clone.querySelector('#pls-img');
@@ -1266,10 +1276,6 @@ var pls = document.getElementById("card-pls");
     await elementoOriginal.parentNode.insertBefore( await clone, await elementoOriginal.nextSibling);
   }
 }
-
-
-
-
 
 
     async function getDataPlayers(url) {
@@ -1287,33 +1293,30 @@ var pls = document.getElementById("card-pls");
   }
 
       function initplayers(obj){
-   var urlImag = 'https://api.jf-tech.org/public/';     
+      var urlImag = 'https://api.jf-tech.org/public/';     
 
-        var frutas = obj.object;
-        console.log(frutas);
+      var frutas = obj.object;
 
-  var listaFrutas = document.getElementById("Players");
-const cardElement = document.createElement('div');
+     var listaFrutas = document.getElementById("Players");
+     const cardElement = document.createElement('div');
 
-  console.log(listaFrutas)
     const frutasHTML = frutas.map(fruta => cardPlayers(urlImag+fruta.photo 
     ,fruta.title,fruta.description,fruta.id,'jogador do interclube',fruta.player,fruta.position)).join('');
-cardElement.innerHTML = frutasHTML;
-listaFrutas.appendChild(cardElement);
+    cardElement.innerHTML = frutasHTML;
+    listaFrutas.appendChild(cardElement);
      }
-
 
       function cardPlayers(url,title,text,id,description,name,position)
     {
       console.log(id)
       return (`
-            <div class="testimonials-two__carousel__item" data-hash="item-${id-1} ">
+            <div class="testimonials-two__carousel__item mb-3" data-hash="item-${id-1} ">
       
                 <div class="testimonials-two__carousel__item__image">
                   <img
                     src=${url}
                     alt="${title}"
-                    style="height:200px;"
+                    style="height:250px;width:250px;"
                   />
                 
                 </div>

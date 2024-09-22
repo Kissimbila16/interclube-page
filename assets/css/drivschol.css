@@ -16378,44 +16378,12 @@ body.boxed-wrapper .contact-two__left__shape {
 
 .main-slider-one__item{
   height: 70vh!important;
-   /* background-color: pink; */
    color: #fff!important;
    background-repeat: no-repeat;
    background-position: center;
    background-size: cover;
-   animation-name: slideHome;
-   animation-duration: 15000.25ms;
-   animation-fill-mode: both;
-   animation-iteration-count: infinite;
-   animation-timing-function: step-end;
-   &:hover{
-    animation-play-state: paused;
-  }
 }
 
-@keyframes slideHome {
-  
-  0%{
-   background-image: url(./../doc/img/slide-1.jpg);
-  }
-
-  30%{
-   background-image: url(./../doc/img/slide-2.jpg);
-   }
-
-   50%{
-   background-image: url(./../doc/img/slide/team.jpg);
-   }
-
-   
-  80%{
-   background-image: url(./../doc/img/escolinha/escolinhs.jpg);
-   }
- 
-   100%{
-   background-image: url(./../doc/img/escolinha/escolinhs.jpg);
-    }
-}
 
 
 
